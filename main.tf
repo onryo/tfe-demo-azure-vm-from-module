@@ -2,9 +2,14 @@ terraform {
   required_version = ">= 0.11.1"
 }
 
+variable "name" {
+  description = "Name to assign to VM instance"
+  default = "tfe-demo"
+}
+
 variable "location" {
   description = "Azure location in which to create resources"
-  default = "East US"
+  default = "West US"
 }
 
 variable "windows_dns_prefix" {
@@ -21,7 +26,7 @@ module "windowsserver" {
   version             = "1.1.5"
   location            = "${var.location}"
   resource_group_name = "${var.windows_dns_prefix}-rc"
-  vm_hostname         = "pwc-ptfe"
+  vm_hostname         = "${var.name}_windows"
   admin_password      = "${var.admin_password}"
   vm_os_simple        = "WindowsServer"
   public_ip_dns       = ["${var.windows_dns_prefix}"]
