@@ -4,12 +4,12 @@ terraform {
 
 variable "name" {
   description = "Name to assign to VM instance"
-  default = "tfe-demo"
+  default     = "tfe-demo"
 }
 
 variable "location" {
   description = "Azure location in which to create resources"
-  default = "West US"
+  default     = "West US"
 }
 
 variable "windows_dns_prefix" {
@@ -18,7 +18,7 @@ variable "windows_dns_prefix" {
 
 variable "admin_password" {
   description = "admin password for Windows VM"
-  default = "pTFE1234!"
+  default     = "pTFE1234!"
 }
 
 module "windowsserver" {
@@ -41,6 +41,6 @@ module "network" {
   allow_ssh_traffic   = true
 }
 
-output "windows_vm_public_name"{
+output "windows_vm_public_name" {
   value = "${module.windowsserver.public_ip_dns_name}"
 }
