@@ -32,15 +32,16 @@ locals {
 }
 
 module "windowsserver" {
-  source              = "Azure/compute/azurerm"
-  version             = "1.1.5"
-  location            = "${var.location}"
-  resource_group_name = "${local.name}-rg"
-  vm_hostname         = "${local.name}"
-  admin_password      = "${var.admin_password}"
-  vm_os_simple        = "WindowsServer"
-  public_ip_dns       = ["${local.name}"]
-  vnet_subnet_id      = "${module.network.vnet_subnets[0]}"
+  source                       = "Azure/compute/azurerm"
+  version                      = "1.1.5"
+  location                     = "${var.location}"
+  resource_group_name          = "${local.name}-rg"
+  vm_hostname                  = "${local.name}"
+  admin_password               = "${var.admin_password}"
+  vm_os_simple                 = "WindowsServer"
+  public_ip_address_allocation = "static"
+  public_ip_dns                = ["${local.name}"]
+  vnet_subnet_id               = "${module.network.vnet_subnets[0]}"
 }
 
 module "network" {
