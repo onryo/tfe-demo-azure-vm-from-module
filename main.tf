@@ -19,6 +19,14 @@ variable "admin_password" {
   default     = "pTFE1234!"
 }
 
+variable "ttl" {
+  description = "TTL tag to assign to instance"
+}
+
+variable "owner" {
+  description = "Ownert tag to assign to instance"
+}
+
 resource "random_string" "name_suffix" {
   length  = 4
   upper   = false
@@ -42,6 +50,11 @@ module "windowsserver" {
   public_ip_address_allocation = "static"
   public_ip_dns                = ["${local.name}"]
   vnet_subnet_id               = "${module.network.vnet_subnets[0]}"
+
+  tags = {
+    owner = "${var.owner}"
+    TTL   = "${var.ttl}"
+  }
 }
 
 module "network" {
@@ -50,6 +63,11 @@ module "network" {
   location            = "${var.location}"
   resource_group_name = "${local.name}-rg"
   allow_ssh_traffic   = true
+
+  tags = {
+    owner = "${var.owner}"
+    TTL   = "${var.ttl}"
+  }
 }
 
 output "windows_vm_public_name" {
