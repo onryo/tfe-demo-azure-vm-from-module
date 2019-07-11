@@ -16,7 +16,7 @@ variable "name_prefix" {
 
 variable "admin_password" {
   description = "admin password for Windows VM"
-  default     = "pTFE1234!"
+  default     = "password-change"
 }
 
 variable "ttl" {
@@ -24,7 +24,7 @@ variable "ttl" {
 }
 
 variable "owner" {
-  description = "Ownert tag to assign to instance"
+  description = "Owner tag to assign to instance"
 }
 
 resource "random_string" "name_suffix" {
