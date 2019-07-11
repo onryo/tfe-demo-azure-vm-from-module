@@ -7,7 +7,7 @@ provider "random" {}
 variable "location" {
   description = "Azure location in which to create resources"
   default     = "West US"
-}
+
 
 variable "name_prefix" {
   description = "Name prefix identifier to combine with random string for resource creation"
