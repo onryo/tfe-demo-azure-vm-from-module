@@ -16,7 +16,7 @@ variable "name_prefix" {
 
 variable "admin_password" {
   description = "admin password for Windows VM"
-  default     = "pTFE1234!"
+  default     = "pTFE12345!"
 }
 
 variable "ttl" {
