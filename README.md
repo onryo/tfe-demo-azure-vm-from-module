@@ -25,3 +25,5 @@ Do the following to destroy the Azure infrastructure provisioned by this configu
 1. On the Variables tab of your workspace, add an environment variable, CONFIRM_DESTROY, with value 1.
 1. On the Settings tab of your workspace, click the "Queue destroy plan" button.
 1. After the plan for the destroy completes, click the "Confirm and Apply" button at the bottom of the page to destroy the Azure infrastructure.
+
+Test
